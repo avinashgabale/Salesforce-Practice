@@ -1,0 +1,8 @@
+public class AccountDisplayController{
+    //Method to fetch the account records
+    @AuraEnabled
+    public static List <Account> fetchAccounts() {
+        List<Account> accList = [SELECT Id, Name, BillingState,Website, Phone, Industry, CreatedDate from Account Order By CreatedDate Desc LIMIT 10];
+        return accList;
+    }
+}
